@@ -1,24 +1,28 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activemodel (6.0.3.1)
-      activesupport (= 6.0.3.1)
-    activerecord (6.0.3.1)
-      activemodel (= 6.0.3.1)
-      activesupport (= 6.0.3.1)
-    activesupport (6.0.3.1)
+    activemodel (5.2.4.5)
+      activesupport (= 5.2.4.5)
+    activerecord (5.2.4.5)
+      activemodel (= 5.2.4.5)
+      activesupport (= 5.2.4.5)
+      arel (>= 9.0)
+    activerecord-reset-pk-sequence (0.2.1)
+    activesupport (5.2.4.5)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-      zeitwerk (~> 2.2, >= 2.2.2)
+    arel (9.0.0)
     coderay (1.1.1)
-    concurrent-ruby (1.1.6)
-    i18n (1.8.2)
+    concurrent-ruby (1.1.8)
+    i18n (1.8.9)
       concurrent-ruby (~> 1.0)
     method_source (0.8.2)
-    minitest (5.14.1)
+    minitest (5.14.4)
     mustermann (1.0.3)
+    pastel (0.8.0)
+      tty-color (~> 0.5)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -26,6 +30,7 @@ GEM
     rack (2.2.3)
     rack-protection (2.0.7)
       rack
+    rake (13.0.3)
     require_all (1.3.3)
     sinatra (2.0.7)
       mustermann (~> 1.0)
@@ -39,18 +44,32 @@ GEM
     sqlite3 (1.3.13)
     thread_safe (0.3.6)
     tilt (2.0.10)
-    tzinfo (1.2.7)
+    tty-color (0.6.0)
+    tty-cursor (0.7.1)
+    tty-prompt (0.23.0)
+      pastel (~> 0.8)
+      tty-reader (~> 0.8)
+    tty-reader (0.9.0)
+      tty-cursor (~> 0.7)
+      tty-screen (~> 0.8)
+      wisper (~> 2.0)
+    tty-screen (0.8.1)
+    tzinfo (1.2.9)
       thread_safe (~> 0.1)
-    zeitwerk (2.3.0)
+    wisper (2.0.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord (~> 5.2)
+  activerecord-reset-pk-sequence
   pry
+  rake
   require_all
   sinatra-activerecord
   sqlite3
+  tty-prompt
 
 BUNDLED WITH
    1.14.6
