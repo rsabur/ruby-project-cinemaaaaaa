@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
     has_many :favorites
-    # has_many :movies, through :favorites 
+    has_many :movies, through: :favorites 
 
     def self.login_helper_method
         puts "What is your username?"
