@@ -12,4 +12,23 @@
 
 ActiveRecord::Schema.define(version: 2021_03_09_135545) do
 
+  create_table "favorites", force: :cascade do |t|
+    t.text "user_review"
+    t.integer "movie_id"
+    t.integer "user_id"
+  end
+
+  create_table "movies", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "genre"
+    t.string "rotten_tomatoes_review"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "username"
+    t.string "password"
+  end
+
 end
