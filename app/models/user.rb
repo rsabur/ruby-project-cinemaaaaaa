@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
     has_many :favorites
-    has_many :movies, through :favorites 
+    # has_many :movies, through :favorites 
 
     def self.login_helper_method
         puts "What is your username?"
@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
         user_inst
     end
 
-    def self.register 
+    def self.register_helper_method
         puts "What is your name?"
         name = STDIN.gets.chomp
         puts "What is your username?"

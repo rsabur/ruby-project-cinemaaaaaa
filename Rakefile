@@ -1,4 +1,4 @@
-require_relative 'config/environment'
+require_relative './config/environment'
 require 'sinatra/activerecord/rake'
 
 desc 'starts a console'
@@ -7,8 +7,8 @@ task :console do
   Pry.start
 end
 
-# desc "Starts our app"
-# task :start do 
-#   interface = Interface.new
-#   interface.run
-# end
+desc "Starts our app"
+task :start do 
+  interface = Interface.new
+  interface.run
+end
