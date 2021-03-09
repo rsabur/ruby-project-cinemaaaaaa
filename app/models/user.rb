@@ -28,4 +28,16 @@ class User < ActiveRecord::Base
         pass = STDIN.gets.chomp
         user_inst = User.create(username: username, password: pass)
     end
+
+    def display_movies
+        if movies.length > 0
+            array_of_hashes = movies.map do |movie|
+                {movie.title => movie.id}
+            end
+            movie_id = TTY::Prompt.new.select("Which movie would you like more information on?", array_of_hashes)
+            puts "You chose #{movie.id}!"
+        else
+            puts "You don't have any movies"
+        end
+    end
 end

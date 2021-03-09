@@ -51,7 +51,8 @@ class Interface
     end
 
     def browse_movie_helper
-        @movie.all.title
+        @user.display_movies
+        main_menu
     end
 
     def favorites_list_helper
