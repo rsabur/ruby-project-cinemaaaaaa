@@ -4,7 +4,7 @@ class CreateMovies < ActiveRecord::Migration[5.2]
       t.string :title 
       t.text :description
       t.string :genre
-      t.string :rotten_tomatoes_review
+      t.integer :rotten_tomatoes_review
     end
   end
 end

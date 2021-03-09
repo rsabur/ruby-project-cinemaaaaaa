@@ -9,12 +9,12 @@ class User < ActiveRecord::Base
         pass = STDIN.gets.chomp
         user_inst = User.find_by(username: username, password: pass)
 
-        until user_inst
-            sleep 1
-            system 'clear'
-            puts "Incorrect username or password"
-            user_inst = User.login_helper_class_method
-        end
+         until user_inst
+        #     sleep 1
+        #     system 'clear'
+             puts "Incorrect username or password"
+             user_inst = User.login_helper_method
+         end
 
         user_inst
     end
