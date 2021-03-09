@@ -51,10 +51,18 @@ class Interface
     end
 
     def browse_movie_helper
-        @movie.all.title
+        @user.display_movies
+        while count < movies.length do
+            Movie.all.map do |movie|
+                Movie.title
+                Movie.description
+            end
+        end
     end
 
     def favorites_list_helper
+        @user.display_favorites
+        main_menu
     end
 
     def create_favs_helper
