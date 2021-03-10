@@ -40,7 +40,7 @@ class Interface
     def main_menu
         @user.reload
         system 'clear'
-        sleep 1
+        sleep 1 
         puts "Welcome back, #{@user.name}!"
         prompt.select "Main Menu" do |menu|
             menu.choice "Browse Movies", -> {browse_movie_helper}
@@ -51,18 +51,19 @@ class Interface
     end
 
     def browse_movie_helper
-        @user.display_movies
-        main_menu
+       @user.display_movies
+        # main_menu
     end
 
     def favorites_list_helper
         @user.display_favorite_movies
-        # main_menu
+        main_menu
+
     end
 
     def create_favs_helper
         @user.create_new_favs_list
-        main_menu
+        # main_menu
     end
 
     def run

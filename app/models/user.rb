@@ -83,6 +83,10 @@ class User < ActiveRecord::Base
         system 'clear'
         sleep 1
         puts "Under Construction... 🚧🛠"
-        sleep 4
+        sleep 1
+        # binding.pry
+        puts "Which movies would you like to add?"
+        movie_choices = Movie.all.map {|movie| movie.title}.uniq
+        TTY::Prompt.new.multi_select("Select movies:", movie_choices)
     end
 end
