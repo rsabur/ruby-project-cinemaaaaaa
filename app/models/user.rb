@@ -30,36 +30,31 @@ class User < ActiveRecord::Base
     end
 
     def display_movies
-        if movies.length > 0 
+        system 'clear'
+        sleep 1
+        if movies.length > 0
             array_of_hashes = Movie.all.map do |movie|
                 movie.title
-            end
-            movie_id = TTY::Prompt.new.select("Which movie would you like more info on?", array_of_hashes)
-            puts "You chose #{movie_id}!"
-        else 
-            puts "You don't have any movies!"
-        end
-    end
-
-    def display_favorites
-    #     if movies.length > 0 
-    #         array_of_hashes = 
-    #         end
-    #         movie_id = TTY::Prompt.new.select("Which movie would you like more info on?", array_of_hashes)
-    #         puts "You chose #{movie_id}!"
-    #     else 
-    #         puts "You don't have any movies!"
-    #     end
-    end
-
-        if movies.length > 0
-            array_of_hashes = movies.map do |movie|
-                {movie.title => movie.id}
-            end
+            end.uniq
             movie_id = TTY::Prompt.new.select("Which movie would you like more information on?", array_of_hashes)
             puts "You chose #{movie.id}!"
         else
             puts "You don't have any movies"
         end
     end
+
+    def display_favorite_movies
+        system 'clear'
+        sleep 1
+        # if movies.length > 0 
+        #     array_of_hashes = 
+        puts "You don't have any movies listed"
+    end
+
+    def create_new_favs_list
+        system 'clear'
+        sleep 1
+        puts "You don't have any movies listed"
+    end
+
 end

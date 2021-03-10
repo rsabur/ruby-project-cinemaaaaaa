@@ -9,3 +9,5 @@ gem "require_all"
 gem "rake"
 gem 'tty-prompt'
 gem 'activerecord-reset-pk-sequence'
+gem 'colorize'
+gem 'faker'
