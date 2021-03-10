@@ -1,3 +1,11 @@
+User.destroy_all
+Movie.destroy_all
+Favorite.destroy_all
+
+User.reset_pk_sequence
+Movie.reset_pk_sequence
+Favorite.reset_pk_sequence
+
 radiyah = User.create(name: "Radiyah", username: "rsabur", password: "abc123")
 susana = User.create(name: "Susana", username: "svik", password: "abc123")
 eric = User.create(name: "Eric", username: "ekim", password: "abc123")
