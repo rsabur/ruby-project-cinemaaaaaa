@@ -52,19 +52,9 @@ class Interface
 
     def browse_movie_helper
         @user.display_movies
-        while count < movies.length do
-            Movie.all.map do |movie|
-                Movie.title
-                Movie.description
-            end
-        end
-        main_menu
-    end
-
-    def favorites_list_helper
-        @user.display_favorites
-        main_menu
-        menu.choice "Main Menu", -> {main_menu}
+        # prompt.select("Go Back?") do
+        #     menu.choice ""
+        # end
     end
 
     def favorites_list_helper
