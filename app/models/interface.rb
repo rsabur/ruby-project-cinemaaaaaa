@@ -52,7 +52,9 @@ class Interface
 
     def browse_movie_helper
         @user.display_movies
-        menu.choice "Main Menu", -> {main_menu}
+        # prompt.select("Go Back?") do
+        #     menu.choice ""
+        # end
     end
 
     def favorites_list_helper

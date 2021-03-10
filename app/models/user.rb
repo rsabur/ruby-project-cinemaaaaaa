@@ -46,15 +46,16 @@ class User < ActiveRecord::Base
     def display_favorite_movies
         system 'clear'
         sleep 1
-        # if movies.length > 0 
-        #     array_of_hashes = 
+        
         puts "You don't have any movies listed"
     end
 
     def create_new_favs_list
         system 'clear'
         sleep 1
-        puts "You don't have any movies listed"
+        puts "Let's get started!"
+
     end
 
+    
 end
