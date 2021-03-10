@@ -7,7 +7,7 @@ Movie.reset_pk_sequence
 Favorite.reset_pk_sequence
 
 u1 = User.create(name: "Radiyah", username: "rsabur", password: "abc123")
-# u2 = User.create(name: "Susana", username: "svik", password: "abc123")
+u2 = User.create(name: "Susana", username: "svik", password: "abc123")
 u3 = User.create(name: "Eric", username: "ekim", password: "abc123")
 
 m1 = Movie.create(title: "Twilight", description: "diamond skin", genre: "Fantasy", rotten_tomatoes_review: 49)
@@ -32,11 +32,11 @@ f1 = Favorite.create(movie_id: m3.id, user_id: u3.id)
 f2 = Favorite.create(movie_id: m1.id, user_id: u3.id)
 f3 = Favorite.create(movie_id: m2.id, user_id: u1.id)
 f4 = Favorite.create(movie_id: m3.id, user_id: u1.id)
-# f5 = Favorite.create(movie_id: m2.id, user_id: u2.id)
-# f6 = Favorite.create(movie_id: m1.id, user_id: u2.id)
+f5 = Favorite.create(movie_id: m2.id, user_id: u2.id)
+f6 = Favorite.create(movie_id: m1.id, user_id: u2.id)
 f7 = Favorite.create(movie_id: m8.id, user_id: u3.id)
 f8 = Favorite.create(movie_id: m11.id, user_id: u1.id)
-# f9 = Favorite.create(movie_id: m6.id, user_id: u2.id)
+f9 = Favorite.create(movie_id: m6.id, user_id: u2.id)
 
 # User.first.movies.map do |movie|
 #     movie.title
