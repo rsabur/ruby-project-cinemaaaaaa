@@ -52,9 +52,7 @@ class Interface
 
     def browse_movie_helper
         @user.display_movies
-        # prompt.select("Go Back?") do
-        #     menu.choice ""
-        # end
+        main_menu
     end
 
     def favorites_list_helper
@@ -64,7 +62,7 @@ class Interface
 
     def create_favs_helper
         @user.create_new_favs_list
-        # main_menu
+        main_menu
     end
 
     def run
