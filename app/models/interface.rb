@@ -58,6 +58,7 @@ class Interface
                 Movie.description
             end
         end
+        main_menu
     end
 
     def favorites_list_helper
