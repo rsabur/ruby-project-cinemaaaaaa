@@ -38,16 +38,17 @@ class User < ActiveRecord::Base
             array_of_hashes = Movie.all.map do |movie|
                 movie.title
             end.uniq
-            movie_id = TTY::Prompt.new.select("Which movie would you like more information on?", array_of_hashes)
-            puts "You chose #{movie_id}!"
+            movie_title = TTY::Prompt.new.select("Which movie would you like more information on?", array_of_hashes)
+            puts "You chose #{movie_title}!"
             puts "---------------------------------"
-            puts "Title: #{movie_id}"
+            puts "#{movie_title}"
             puts "\n"
-            puts "Description: #{Movie.find_by(title: movie_id).description}"
+            puts "#{Movie.find_by(title: movie_title).description}"
             puts "\n"
             puts "Genre: #{Movie.find_by(title: movie_title).genre}"
             puts "\n"
             puts "Tomatometer: #{Movie.find_by(title: movie_title).rotten_tomatoes_review}"
+            puts "\n"
         else
             puts "No movies to display 😫"
             sleep 4
@@ -66,13 +67,14 @@ class User < ActiveRecord::Base
             # binding.pry
             puts "You chose #{movie_title}!"
             puts "---------------------------------"
-            puts "Title: #{movie_title}"
+            puts "#{movie_title}"
             puts "\n"
-            puts "Description: #{Movie.find_by(title: movie_title).description}"
+            puts "#{Movie.find_by(title: movie_title).description}"
             puts "\n"
             puts "Genre: #{Movie.find_by(title: movie_title).genre}"
             puts "\n"
             puts "Tomatometer: #{Movie.find_by(title: movie_title).rotten_tomatoes_review}"
+            puts "\n"
         else
         puts "You don't have any movies listed 😫"
         sleep 4
@@ -86,7 +88,10 @@ class User < ActiveRecord::Base
         sleep 1
         # binding.pry
         puts "Which movies would you like to add?"
+        # binding.pry
         movie_choices = Movie.all.map {|movie| movie.title}.uniq
-        TTY::Prompt.new.multi_select("Select movies:", movie_choices)
+        new_favorite_list = TTY::Prompt.new.multi_select("Select movies:", movie_choices)
+        # new_favorite_list.push(display_favorite_movies)
+        puts "\n"
     end
 end
