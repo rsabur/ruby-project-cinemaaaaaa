@@ -58,7 +58,8 @@ class Interface
         # binding.pry
         puts "Welcome back, #{@user.name}!"
         prompt.select "Main Menu" do |menu|
-            menu.choice "Browse Movies", -> {browse_movie_helper}
+            menu.choice "Browse All Movies", -> {browse_movie_helper}
+            menu.choice "Browse Movies By ...", -> {browse_by_helper}
             menu.choice "Favorites List", -> {favorites_list_helper}
             menu.choice "Add Favorites", -> {add_favs_helper}
             menu.choice "Log Out", -> {puts "See Ya Later!"}
@@ -74,10 +75,21 @@ class Interface
         end
     end
 
+    def browse_by_helper
+        puts "How would you filter your search?"
+        prompt.select "Menu" do |menu|
+            menu.choice "Genre", -> {browse_genres_helper}
+        end
+    end
+
+    def browse_genres_helper
+        @user.browse_genres
+    end
+
     def favorites_list_helper
         listed_movies = @user.display_favorite_movies
         prompt.select "Menu" do |menu|
-            menu.choice "Add Review?", -> {add_review_helper(listed_movies)}
+            menu.choice "Add Review", -> {add_review_helper(listed_movies)}
             menu.choice "Remove From Favorites", -> {remove_from_favs_helper(listed_movies)}
             menu.choice "Favorite List", -> {favorites_list_helper}
             menu.choice "Main Menu", -> {main_menu}

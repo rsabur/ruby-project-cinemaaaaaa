@@ -106,7 +106,7 @@ class User < ActiveRecord::Base
         movie_choices = Movie.all.map {|movie| movie.title}.uniq
         new_favorite_list = TTY::Prompt.new.multi_select("Select movies:", movie_choices)
         # binding.pry
-
+        
         new_favorite_list.each do |favorite| 
             # binding.pry 
             new_fav = Movie.find_by(title: favorite)
@@ -126,6 +126,17 @@ class User < ActiveRecord::Base
             sleep 2
         end
     end
+
+    def browse_genres
+        array_of_hashes = Movie.all.map {|movie| movie.genre}.uniq
+        movie_genre = TTY::Prompt.new.select("What genre of movies would you like to view?", array_of_hashes)
+        puts "You chose #{movie_genre}!"
+        binding.pry
+        Movie.all.any? {|genre| genre.title == movie_genre}
+            puts "#{genre.title}"
+        puts "Movies: #{Movie.find_by(genre: movie_genre).title}!"
+
+    end 
 
     def get_trailer
         self.movies.map do |movie|
