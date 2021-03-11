@@ -56,13 +56,14 @@ class User < ActiveRecord::Base
     end
 
     def display_favorite_movies
+        self.reload
         system 'clear'
         sleep 1
         if favorites.length > 0
             array_of_hashes = self.movies.map do |movie|
                 # binding.pry
                 movie.title
-            end
+            end.uniq
             movie_title = TTY::Prompt.new.select("Which movie would you like more information on?", array_of_hashes)
             # binding.pry
             puts "You chose #{movie_title}!"
@@ -78,10 +79,6 @@ class User < ActiveRecord::Base
         else
         puts "You don't have any movies listed 😫"
         sleep 2
-        puts "Which movies would you like to add?"
-        # binding.pry
-        movie_choices = Movie.all.map {|movie| movie.title}.uniq
-        new_favorite_list = TTY::Prompt.new.multi_select("Select movies:", movie_choices)
         end
     end
 
@@ -95,18 +92,21 @@ class User < ActiveRecord::Base
         # binding.pry
         movie_choices = Movie.all.map {|movie| movie.title}.uniq
         new_favorite_list = TTY::Prompt.new.multi_select("Select movies:", movie_choices)
+        # binding.pry
 
-        # new_favorite_list.create 
-        old_favorites_list = self.movies.map do |movie|
-            movie.title
+        new_favorite_list.each do |favorite| 
+            # binding.pry 
+            new_fav = Movie.find_by(title: favorite)
+            Favorite.create(movie_id: new_fav.id, user_id: self.id)
         end
-        updated_favorite_list = old_favorite_list << new_favorite_list
         puts "\n"
     end
+    
 
     def get_trailer
         self.movies.map do |movie|
             # binding.pry
+            # movie.trailer
             #why is this putsing out 3 trailer links instead of 1?
             puts "View Trailer Here: #{movie.trailer}"
         end

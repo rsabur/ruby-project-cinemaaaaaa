@@ -76,6 +76,7 @@ class Interface
     def favorites_list_helper
         @user.display_favorite_movies
         prompt.select "Menu" do |menu|
+            menu.choice "Remove From Favorites", -> {remove_from_favs}
             menu.choice "Main Menu", -> {main_menu}
             menu.choice "Log Out", -> {puts "See ya Later!"}
         end
@@ -88,6 +89,11 @@ class Interface
             menu.choice "Log Out", -> {puts "See ya Later!"}
         end
     end
+
+    def remove_from_favs
+
+    end
+    
 
     def run
         welcome
