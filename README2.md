@@ -1,8 +1,9 @@
 ## Welcome to Film Finder!
 
-## Objective: What does our app do?
+a short description, install instructions, a contributor's guide and a link to the license for your code.
+## Description: What does our app do?
 
-Film finder allows you to create a list of your favorite movies as well as movies you'd love to watch in the future!
+Film Finder allows you to create a list of your favorite movies as well as movies you'd love to watch in the future! 
 
 ## Usage: how to navigate film finder
 

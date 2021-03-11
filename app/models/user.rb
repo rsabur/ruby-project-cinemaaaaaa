@@ -76,6 +76,7 @@ class User < ActiveRecord::Base
             puts "\n"
             puts "Tomatometer: #{Movie.find_by(title: movie_title).rotten_tomatoes_review}"
             puts "\n"
+            Movie.find_by(title: movie_title)
         else
         puts "You don't have any movies listed 😫"
         sleep 2
@@ -102,6 +103,17 @@ class User < ActiveRecord::Base
         puts "\n"
     end
     
+    def remove_from_favs(fav_movie)
+        sleep 1
+        if self.favorites.length > 0 
+            self.favorites.find_by(movie_id: fav_movie.id).destroy
+            puts "You removed #{fav_movie.title}!"
+            sleep 2
+        else
+            puts "No movies to delete!"
+            sleep 2
+        end
+    end
 
     def get_trailer
         self.movies.map do |movie|

@@ -55,6 +55,7 @@ class Interface
         # @user.reload
         system 'clear'
         sleep 1 
+        binding.pry
         puts "Welcome back, #{@user.name}!"
         prompt.select "Main Menu" do |menu|
             menu.choice "Browse Movies", -> {browse_movie_helper}
@@ -74,9 +75,9 @@ class Interface
     end
 
     def favorites_list_helper
-        @user.display_favorite_movies
+        listed_movies = @user.display_favorite_movies
         prompt.select "Menu" do |menu|
-            menu.choice "Remove From Favorites", -> {remove_from_favs}
+            menu.choice "Remove From Favorites", -> {remove_from_favs_helper(listed_movies)}
             menu.choice "Main Menu", -> {main_menu}
             menu.choice "Log Out", -> {puts "See ya Later!"}
         end
@@ -90,8 +91,9 @@ class Interface
         end
     end
 
-    def remove_from_favs
-
+    def remove_from_favs_helper(fav_movie)
+        @user.remove_from_favs(fav_movie)
+        main_menu
     end
     
 
