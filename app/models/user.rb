@@ -76,11 +76,23 @@ class User < ActiveRecord::Base
             puts "\n"
             puts "Tomatometer: #{Movie.find_by(title: movie_title).rotten_tomatoes_review}"
             puts "\n"
+            # binding.pry
+            puts "My Review: #{Favorite.find_by(movie_id: Movie.find_by(title: movie_title)).user_review}"
+            puts "\n"
             Movie.find_by(title: movie_title)
         else
         puts "You don't have any movies listed 😫"
         sleep 2
         end
+    end
+
+    def add_review(fav_movie_review)
+        # binding.pry
+        puts "What did you think of this movie?"
+        comment = STDIN.gets.chomp
+        # binding.pry
+        self.favorites.find_by(movie_id: fav_movie_review.id).update(user_review: comment)
+        # binding.pry
     end
 
     def add_new_favs

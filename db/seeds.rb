@@ -191,3 +191,5 @@ f9 = Favorite.create(movie_id: m6.id, user_id: u2.id)
 # User.first.movies.map do |movie|
 #     movie.title
 # end  
+
+puts "Successful Seeding"
