@@ -18,7 +18,8 @@ reveals himself to be a 108-year-old vampire.
 
 Director: Catherine Hardwicke
 Writers: Melissa Rosenberg (screenplay), Stephenie Meyer (novel)
-Stars: Kristen Stewart, Robert Pattinson, Billy Burke", genre: "Fantasy", rotten_tomatoes_review: 49)
+Stars: Kristen Stewart, Robert Pattinson, Billy Burke", genre: "Fantasy", rotten_tomatoes_review: 49, 
+trailer: "https://www.youtube.com/watch?v=uxjNDE2fMjI")
 
 
 m2 = Movie.create(title: "Clueless", description: 
@@ -29,7 +30,8 @@ each other.
 
 Director: Amy Heckerling
 Writer: Amy Heckerling
-Stars: Alicia Silverstone, Stacey Dash, Brittany Murphy", genre: "Comedy", rotten_tomatoes_review: 82)
+Stars: Alicia Silverstone, Stacey Dash, Brittany Murphy", genre: "Comedy", rotten_tomatoes_review: 82,
+trailer: "https://www.youtube.com/watch?v=Mgjwq1ZzdPQ")
 
 
 m3 = Movie.create(title: "Juno", description: 
@@ -38,7 +40,8 @@ an unusual decision regarding the unborn child.
 
 Director: Jason Reitman
 Writer: Diablo Cody
-Stars: Elliot Page, Michael Cera, Jennifer Garner", genre: "Romance", rotten_tomatoes_review: 94)
+Stars: Elliot Page, Michael Cera, Jennifer Garner", genre: "Romance", rotten_tomatoes_review: 94,
+trailer: "https://www.youtube.com/watch?v=QuN0Z65sp5c")
 
 
 m4 = Movie.create(title: "Roman Holiday", description: 
@@ -47,7 +50,8 @@ in love with an American newsman in Rome.
 
 Director: William Wyler
 Writers: Ian McLellan Hunter (screenplay), John Dighton (screenplay)
-Stars: Gregory Peck, Audrey Hepburn, Eddie Albert", genre: "Romance", rotten_tomatoes_review: 97)
+Stars: Gregory Peck, Audrey Hepburn, Eddie Albert", genre: "Romance", rotten_tomatoes_review: 97,
+trailer: "https://www.youtube.com/watch?v=twi3lQIDkiU")
 
 
 m5 = Movie.create(title: "Casino", description: 
@@ -58,7 +62,8 @@ fast-living and fast-loving socialite.
 
 Director: Martin Scorsese
 Writers: Nicholas Pileggi (book), Nicholas Pileggi (screenplay)
-Stars: Robert De Niro, Sharon Stone, Joe Pesci", genre: "Crime", rotten_tomatoes_review: 80)
+Stars: Robert De Niro, Sharon Stone, Joe Pesci", genre: "Crime", rotten_tomatoes_review: 80,
+trailer: "https://www.youtube.com/watch?v=EJXDMwGWhoA")
 
 
 m6 = Movie.create(title: "Mean Girls", description: 
@@ -68,7 +73,8 @@ Aaron Samuels, the ex-boyfriend of alpha Plastic Regina George.
 
 Director: Mark Waters
 Writers: Rosalind Wiseman (book), Tina Fey (screenplay)
-Stars: Lindsay Lohan, Jonathan Bennett, Rachel McAdams", genre: "Comedy", rotten_tomatoes_review: 84)
+Stars: Lindsay Lohan, Jonathan Bennett, Rachel McAdams", genre: "Comedy", rotten_tomatoes_review: 84,
+trailer: "https://www.youtube.com/watch?v=oDU84nmSDZY")
 
 
 m7 = Movie.create(title: "Lovelace", description: 
@@ -78,7 +84,8 @@ control of her life.
 
 Directors: Rob Epstein, Jeffrey Friedman
 Writer: Andy Bellin
-Stars: Amanda Seyfried, Peter Sarsgaard, Sharon Stone", genre: "Drama", rotten_tomatoes_review: 53)
+Stars: Amanda Seyfried, Peter Sarsgaard, Sharon Stone", genre: "Drama", rotten_tomatoes_review: 53,
+trailer: "https://www.youtube.com/watch?v=HPJY-g-WoQo")
 
 
 m8 = Movie.create(title: "Superbad", description: 
@@ -88,7 +95,8 @@ party goes awry.
 
 Director: Greg Mottola
 Writers: Seth Rogen, Evan Goldberg
-Stars: Michael Cera, Jonah Hill, Christopher Mintz-Plasse", genre: "Comedy", rotten_tomatoes_review: 88)
+Stars: Michael Cera, Jonah Hill, Christopher Mintz-Plasse", genre: "Comedy", rotten_tomatoes_review: 88,
+trailer: "https://www.youtube.com/watch?v=4eaZ_48ZYog")
 
 
 m9 = Movie.create(title: "Pulp Fiction", description: 
@@ -98,7 +106,8 @@ and redemption.
 
 Director: Quentin Tarantino
 Writers: Quentin Tarantino (stories), Roger Avary (stories)
-Stars: John Travolta, Uma Thurman, Samuel L. Jackson", genre: "Crime", rotten_tomatoes_review: 92)
+Stars: John Travolta, Uma Thurman, Samuel L. Jackson", genre: "Crime", rotten_tomatoes_review: 92,
+trailer: "https://www.youtube.com/watch?v=s7EdQ4FqbhY")
 
 
 m10 = Movie.create(title: "The Mask", description: 
@@ -107,7 +116,8 @@ when he wears a mysterious mask.
 
 Director: Chuck Russell (as Charles Russell)
 Writers: Michael Fallon (story), Mark Verheiden (story)
-Stars: Jim Carrey, Cameron Diaz, Peter Riegert", genre: "Comedy", rotten_tomatoes_review: 77)
+Stars: Jim Carrey, Cameron Diaz, Peter Riegert", genre: "Comedy", rotten_tomatoes_review: 77,
+trailer: "https://www.youtube.com/watch?v=LZl69yk5lEY")
 
 
 m11 = Movie.create(title: "Heathers", description: 
@@ -118,7 +128,8 @@ to give teen angst a body count.
 
 Director: Michael Lehmann
 Writer: Daniel Waters
-Stars: Winona Ryder, Christian Slater, Shannen Doherty", genre: "Comedy", rotten_tomatoes_review: 93)
+Stars: Winona Ryder, Christian Slater, Shannen Doherty", genre: "Comedy", rotten_tomatoes_review: 93,
+trailer: "https://www.youtube.com/watch?v=KJVKh9KKiug")
 
 
 m12 = Movie.create(title: "Cats", description: 
@@ -128,7 +139,8 @@ life.
 
 Director: Tom Hooper
 Writers: Lee Hall (screenplay by), Tom Hooper (screenplay by)
-Stars: James Corden, Judi Dench, Jason Derulo", genre: "Musical", rotten_tomatoes_review: 19)
+Stars: James Corden, Judi Dench, Jason Derulo", genre: "Musical", rotten_tomatoes_review: 19,
+trailer: "https://www.youtube.com/watch?v=yleb8iqI2cY")
 
 
 m13 = Movie.create(title: "Kazaam", description: 
@@ -137,7 +149,8 @@ any three wishes he requests.
 
 Director: Paul Michael Glaser (as Paul M. Glaser)
 Writers: Paul Michael Glaser (story) (as Paul M. Glaser), Christian Ford (screenplay)
-Stars: Shaquille O'Neal, Francis Capra, Ally Walker", genre: "Fantasy", rotten_tomatoes_review: 24)
+Stars: Shaquille O'Neal, Francis Capra, Ally Walker", genre: "Fantasy", rotten_tomatoes_review: 24,
+trailer: "https://www.youtube.com/watch?v=fFVaxa1UKNg")
 
 
 m14 = Movie.create(title: "Scream", description: 
@@ -147,7 +160,8 @@ films as part of a deadly game.
 
 Director: Wes Craven
 Writer: Kevin Williamson
-Stars: Neve Campbell, Courteney Cox, David Arquette", genre: "Horror", rotten_tomatoes_review: 79)
+Stars: Neve Campbell, Courteney Cox, David Arquette", genre: "Horror", rotten_tomatoes_review: 79,
+trailer: "https://www.youtube.com/watch?v=AWm_mkbdpCA")
 
 
 m15 = Movie.create(title: "Get Out", description: 
@@ -157,7 +171,8 @@ him eventually reaches a boiling point.
 
 Director: Jordan Peele
 Writer: Jordan Peele
-Stars: Daniel Kaluuya, Allison Williams, Bradley Whitford", genre: "Horror", rotten_tomatoes_review: 98)
+Stars: Daniel Kaluuya, Allison Williams, Bradley Whitford", genre: "Horror", rotten_tomatoes_review: 98,
+trailer: "https://www.youtube.com/watch?v=DzfpyUB60YY")
 
 
 

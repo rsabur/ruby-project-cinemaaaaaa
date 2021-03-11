@@ -96,7 +96,7 @@ class Interface
     end
 
     def trailer
-
+        @user.get_trailer
     end
 end
 

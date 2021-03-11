@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_09_135545) do
+ActiveRecord::Schema.define(version: 2021_03_11_010742) do
 
   create_table "favorites", force: :cascade do |t|
     t.text "user_review"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2021_03_09_135545) do
     t.text "description"
     t.string "genre"
     t.integer "rotten_tomatoes_review"
+    t.string "trailer"
   end
 
   create_table "users", force: :cascade do |t|

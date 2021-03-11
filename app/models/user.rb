@@ -94,4 +94,12 @@ class User < ActiveRecord::Base
         # new_favorite_list.push(display_favorite_movies)
         puts "\n"
     end
+
+    def get_trailer
+        self.movies.map do |movie|
+            # binding.pry
+            #why is this putsing out 3 trailer links instead of 1?
+            puts "View Trailer Here: #{movie.trailer}"
+        end
+    end
 end
