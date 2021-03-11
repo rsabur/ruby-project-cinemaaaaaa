@@ -7,6 +7,7 @@ class Interface
     end
 
     def welcome
+        system 'clear'
         logo
         puts "Hello!"
         sleep 1
@@ -24,8 +25,7 @@ class Interface
         Y8.   .88 88 88    88 88.  ... 88  88  88 88.  .88 88.  .88 88.  .88 88.  .88 88.  .88 88.  .88 
          Y88888P' dP dP    dP `88888P' dP  dP  dP `88888P8 `88888P8 `88888P8 `88888P8 `88888P8 `88888P8 
         oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
-                                                                                                        ".colorize(:blue)
-    end
+                                                                                                        ".colorize(:red)    end
 
 
     def ask_for_login_or_register
@@ -59,7 +59,7 @@ class Interface
         prompt.select "Main Menu" do |menu|
             menu.choice "Browse Movies", -> {browse_movie_helper}
             menu.choice "Favorites List", -> {favorites_list_helper}
-            menu.choice "Create a Favorites List", -> {create_favs_helper}
+            menu.choice "Add Favorites", -> {add_favs_helper}
             menu.choice "Log Out", -> {puts "See Ya Later!"}
         end
     end
@@ -81,8 +81,8 @@ class Interface
         end
     end
 
-    def create_favs_helper
-        @user.create_new_favs_list
+    def add_favs_helper
+        @user.add_new_favs
         prompt.select "Menu" do |menu|
             menu.choice "Main Menu", -> {main_menu}
             menu.choice "Log Out", -> {puts "See ya Later!"}

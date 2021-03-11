@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
 
          until user_inst
         #     sleep 1
-        #     system 'clear'
+            system 'clear'
              puts "Incorrect username or password"
              user_inst = User.login_helper_method
          end
@@ -77,11 +77,15 @@ class User < ActiveRecord::Base
             puts "\n"
         else
         puts "You don't have any movies listed 😫"
-        sleep 4
+        sleep 2
+        puts "Which movies would you like to add?"
+        # binding.pry
+        movie_choices = Movie.all.map {|movie| movie.title}.uniq
+        new_favorite_list = TTY::Prompt.new.multi_select("Select movies:", movie_choices)
         end
     end
 
-    def create_new_favs_list
+    def add_new_favs
         system 'clear'
         sleep 1
         puts "Under Construction... 🚧🛠"
@@ -91,7 +95,12 @@ class User < ActiveRecord::Base
         # binding.pry
         movie_choices = Movie.all.map {|movie| movie.title}.uniq
         new_favorite_list = TTY::Prompt.new.multi_select("Select movies:", movie_choices)
-        # new_favorite_list.push(display_favorite_movies)
+
+        # new_favorite_list.create 
+        old_favorites_list = self.movies.map do |movie|
+            movie.title
+        end
+        updated_favorite_list = old_favorite_list << new_favorite_list
         puts "\n"
     end
 
