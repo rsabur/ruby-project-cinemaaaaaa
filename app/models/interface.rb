@@ -19,19 +19,18 @@ class Interface
 
     def logo
         puts "
-         a88888b. oo                                                                                    
-        d8'   `88                                                                                       
-        88        dP 88d888b. .d8888b. 88d8b.d8b. .d8888b. .d8888b. .d8888b. .d8888b. .d8888b. .d8888b. 
-        88        88 88'  `88 88ooood8 88'`88'`88 88'  `88 88'  `88 88'  `88 88'  `88 88'  `88 88'  `88 
-        Y8.   .88 88 88    88 88.  ... 88  88  88 88.  .88 88.  .88 88.  .88 88.  .88 88.  .88 88.  .88 
-         Y88888P' dP dP    dP `88888P' dP  dP  dP `88888P8 `88888P8 `88888P8 `88888P8 `88888P8 `88888P8 
-        oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
-                                                                                                        ".colorize(:red)    
-                                                                                                    
+ ██████╗██╗███╗   ██╗███████╗███╗   ███╗ █████╗  █████╗  █████╗  █████╗  █████╗  █████╗ 
+ ██╔════╝██║████╗  ██║██╔════╝████╗ ████║██╔══██╗██╔══██╗██╔══██╗██╔══██╗██╔══██╗██╔══██╗
+ ██║     ██║██╔██╗ ██║█████╗  ██╔████╔██║███████║███████║███████║███████║███████║███████║
+ ██║     ██║██║╚██╗██║██╔══╝  ██║╚██╔╝██║██╔══██║██╔══██║██╔══██║██╔══██║██╔══██║██╔══██║
+ ╚██████╗██║██║ ╚████║███████╗██║ ╚═╝ ██║██║  ██║██║  ██║██║  ██║██║  ██║██║  ██║██║  ██║
+  ╚═════╝╚═╝╚═╝  ╚═══╝╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝ ".colorize(:red)                    
     end
 
     def play_sound
-        pid = fork{ exec 'afplay', "/Users/susanavik/Music/iTunes/iTunes Media/Music/Unknown Artist/Unknown Album/246253-frankyboomer-magic-harp.mp3"}
+        # pid = fork{ exec 'afplay', "/Users/susanavik/Music/iTunes/iTunes Media/Music/Unknown Artist/Unknown Album/246253-frankyboomer-magic-harp.mp3"}
+        # pid = fork{ exec 'afplay', "/Users/radiyah/Downloads/246253-frankyboomer-magic-harp.mp3"}
+        pid = fork{ exec 'afplay', "app/song/246253-frankyboomer-magic-harp.mp3"}
     end
 
     def ask_for_login_or_register
@@ -60,9 +59,10 @@ class Interface
     def main_menu
         # @user.reload
         system 'clear'
-        sleep 1 
+        sleep 1
+        logo
         # binding.pry
-        puts "Welcome back, #{@user.name}!"
+        puts "Welcome back!"
         prompt.select "Main Menu" do |menu|
             menu.choice "Browse All Movies", -> {browse_movie_helper}
             menu.choice "Filter Movies", -> {browse_by_helper}
@@ -73,9 +73,9 @@ class Interface
     end
 
     def browse_movie_helper
-       @user.display_movies
+       selected_movie = @user.display_movies
         prompt.select "Menu" do |menu|
-            menu.choice "Watch Trailer", -> {trailer}
+            menu.choice "Watch Trailer", -> {trailer(selected_movie)}
             menu.choice "Main Menu", -> {main_menu}
             menu.choice "Log Out", -> {puts "See ya Later!"}
         end
@@ -153,11 +153,8 @@ class Interface
         main_menu
     end
 
-    def trailer
-        @user.get_trailer
+    def trailer(selected_movie)
+        selected_movie.get_trailer
         main_menu
     end
 end
-
-
-# https://medium.com/@sylwiavargas/adding-pictures-to-your-ruby-cli-4252b89823a

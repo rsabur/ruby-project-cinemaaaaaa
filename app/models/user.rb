@@ -49,6 +49,7 @@ class User < ActiveRecord::Base
             puts "\n"
             puts "Tomatometer: #{Movie.find_by(title: movie_title).rotten_tomatoes_review}"
             puts "\n"
+            Movie.find_by(title: movie_title)
         else
             puts "No movies to display 😫"
             sleep 4
@@ -145,12 +146,13 @@ class User < ActiveRecord::Base
         # puts "Movies: #{Movie.find_by(genre: movie_genre).title}!"
     end 
 
-    def get_trailer
-        self.movies.map do |movie|
-            binding.pry
-            # movie.trailer
-            #why is this putsing out 3 trailer links instead of 1?
-            puts "View Trailer Here: #{movie.trailer}"
-        end
-    end
+    # def get_trailer
+    #     self.movies.map do |movie|
+    #         # binding.pry
+    #         # movie.trailer
+    #         #why is this putsing out 3 trailer links instead of 1?
+    #         puts "View Trailer Here: #{movie.trailer}"
+    #         sleep 4
+    #     end
+    # end
 end
