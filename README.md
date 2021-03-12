@@ -33,5 +33,5 @@ How to include audio:
 Github Repository Link:
 - https://github.com/rsabur/ruby-project-cinemaaaaaa
 
-SHH Key:
+SSH Key:
 - git@github.com:rsabur/ruby-project-cinemaaaaaa.git
