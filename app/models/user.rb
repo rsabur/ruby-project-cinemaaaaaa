@@ -108,8 +108,6 @@ class User < ActiveRecord::Base
     def add_new_favs
         system 'clear'
         sleep 1
-        puts "Under Construction... 🚧🛠"
-        sleep 1
         # binding.pry
         puts "Which movies would you like to add?"
         # binding.pry
@@ -138,13 +136,50 @@ class User < ActiveRecord::Base
     end
 
     def browse_genres
+        system 'clear'
         array_of_hashes = Movie.all.map {|movie| movie.genre}.uniq
+        # binding.pry
         movie_genre = TTY::Prompt.new.select("What genre of movies would you like to view?", array_of_hashes)
         puts "You chose #{movie_genre}!"
-        movie_by_genre = Movie.all.map {|genre| genre.title}
-        puts movie_by_genre.genre
-        # puts "Movies: #{Movie.find_by(genre: movie_genre).title}!"
+        genre_list_inst = Movie.all.select{|movies| movies.genre == movie_genre}
+        genre_list = genre_list_inst.map{|movie| movie.title}
+        movie_title = TTY::Prompt.new.select("Which movie would you like more information on?", genre_list)
+        puts "You chose #{movie_title}!"
+            puts "---------------------------------"
+            puts "#{movie_title}"
+            puts "\n"
+            puts "#{Movie.find_by(title: movie_title).description}"
+            puts "\n"
+            puts "Genre: #{Movie.find_by(title: movie_title).genre}"
+            puts "\n"
+            puts "Tomatometer: #{Movie.find_by(title: movie_title).rotten_tomatoes_review}"
+            puts "\n"
+            # binding.pry
+            # puts "My Review: #{Favorite.find_by(movie_id: Movie.find_by(title: movie_title)).user_review}"
+            # puts "\n"
+            sleep 2
     end 
+
+    def rt_fresh_movies
+        system 'clear'
+        sleep 2
+        puts "Under Construction 🚧🛠"
+        sleep 2
+    end
+
+    def add_favs_by_genre
+        system 'clear'
+        sleep 2
+        puts "Under Construction 🚧🛠"
+        sleep 2
+    end
+
+    def rt_splat_movies
+        system 'clear'
+        sleep 2
+        puts "Under Construction 🚧🛠"
+        sleep 2
+    end
 
     # def get_trailer
     #     self.movies.map do |movie|
