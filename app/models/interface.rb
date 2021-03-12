@@ -59,7 +59,7 @@ class Interface
         puts "Welcome back, #{@user.name}!"
         prompt.select "Main Menu" do |menu|
             menu.choice "Browse All Movies", -> {browse_movie_helper}
-            menu.choice "Browse Movies By ...", -> {browse_by_helper}
+            menu.choice "Filter Movies", -> {browse_by_helper}
             menu.choice "Favorites List", -> {favorites_list_helper}
             menu.choice "Add Favorites", -> {add_favs_helper}
             menu.choice "Log Out", -> {puts "See Ya Later!"}
@@ -79,11 +79,36 @@ class Interface
         puts "How would you filter your search?"
         prompt.select "Menu" do |menu|
             menu.choice "Genre", -> {browse_genres_helper}
+            menu.choice "RottenTomatoes - Fresh", -> {rt_fresh_movies_helper}
+            menu.choice "RottenTomatoes - Splat", -> {rt_splat_movies_helper}
+            menu.choice "Main Menu", -> {main_menu}
+            menu.choice "Log Out", -> {puts "See ya Later!"}
         end
+    end
+
+    def rt_fresh_movies_helper
+        @user.rt_fresh_movies
+        browse_by_helper
+    end
+
+    def rt_splat_movies_helper
+        @user.rt_splat_movies
+        browse_by_helper
     end
 
     def browse_genres_helper
         @user.browse_genres
+        prompt.select "Menu" do |menu|
+            menu.choice "Add To Favorites", -> {add_favs_by_genre_helper}
+            menu.choice "Go Back", -> {browse_by_helper}
+            menu.choice "Main Menu", -> {main_menu}
+            menu.choice "Log Out", -> {puts "See ya Later!"}
+        end
+    end
+
+    def add_favs_by_genre_helper
+        @user.add_favs_by_genre
+        main_menu
     end
 
     def favorites_list_helper
@@ -95,7 +120,6 @@ class Interface
             menu.choice "Main Menu", -> {main_menu}
             menu.choice "Log Out", -> {puts "See ya Later!"}
         end
-        
     end
 
     def add_favs_helper
@@ -125,6 +149,7 @@ class Interface
 
     def trailer
         @user.get_trailer
+        main_menu
     end
 end
 
