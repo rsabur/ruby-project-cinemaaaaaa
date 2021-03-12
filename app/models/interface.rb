@@ -8,6 +8,7 @@ class Interface
 
     def welcome
         system 'clear'
+        play_sound
         logo
         puts "Hello!"
         sleep 1
@@ -25,8 +26,13 @@ class Interface
         Y8.   .88 88 88    88 88.  ... 88  88  88 88.  .88 88.  .88 88.  .88 88.  .88 88.  .88 88.  .88 
          Y88888P' dP dP    dP `88888P' dP  dP  dP `88888P8 `88888P8 `88888P8 `88888P8 `88888P8 `88888P8 
         oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
-                                                                                                        ".colorize(:red)    end
+                                                                                                        ".colorize(:red)    
+                                                                                                    
+    end
 
+    def play_sound
+        pid = fork{ exec 'afplay', "/Users/susanavik/Music/iTunes/iTunes Media/Music/Unknown Artist/Unknown Album/246253-frankyboomer-magic-harp.mp3"}
+    end
 
     def ask_for_login_or_register
         prompt.select "Would you like to Login or Register?" do |menu|
