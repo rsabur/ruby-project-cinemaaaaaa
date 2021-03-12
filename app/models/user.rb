@@ -143,12 +143,11 @@ class User < ActiveRecord::Base
         movie_by_genre = Movie.all.map {|genre| genre.title}
         puts movie_by_genre.genre
         # puts "Movies: #{Movie.find_by(genre: movie_genre).title}!"
-
     end 
 
     def get_trailer
         self.movies.map do |movie|
-            # binding.pry
+            binding.pry
             # movie.trailer
             #why is this putsing out 3 trailer links instead of 1?
             puts "View Trailer Here: #{movie.trailer}"
